@@ -2,7 +2,6 @@ package com.srv_cliente.srv_cliente.controller;
 
 import com.srv_cliente.srv_cliente.Service.ClienteService;
 import com.srv_cliente.srv_cliente.model.Cliente;
-import com.srv_cliente.srv_cliente.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
