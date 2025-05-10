@@ -3,7 +3,6 @@ package com.srv_produto.srv_produto.controller;
 import com.srv_produto.srv_produto.model.Produto;
 import com.srv_produto.srv_produto.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -24,12 +23,12 @@ public class ProdutoController {
     }
 
     @GetMapping("/listar")
-    public List<Produto> listar(Model model) {
+    public List<Produto> listar(Produto produto) {
         return produtoService.listarTodos();
     }
 
     @GetMapping("/buscar/{id}")
-    public Optional<Produto> pesquisar(@PathVariable Long id) {
+    public Optional<Produto> pesquisar(@PathVariable("id") Long id) {
         return produtoService.buscarPorId(id);
     }
 
@@ -40,13 +39,13 @@ public class ProdutoController {
     }
 
     @PutMapping("/atualizar/{id}")
-    public String atualizar(@PathVariable Long id, @RequestBody Produto produto){
+    public String atualizar(@PathVariable("id") Long id, @RequestBody Produto produto){
         produtoService.atualizar(id, produto);
         return "Atualizado com sucesso";
     }
 
     @DeleteMapping("/deletar/{id}")
-    public String deletar(@PathVariable Long id){
+    public String deletar(@PathVariable("id") Long id){
         produtoService.excluir(id);
         return "Deletado com sucesso";
     }
